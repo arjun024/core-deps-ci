@@ -65,13 +65,6 @@ main() {
   version="$(get_version)"
   write_private_yml
 
-  if release_version_exists "${version}"; then
-    echo "Version ${version} is already released"
-  else
-    finalize_release "${version}"
-    commit_changes "${name}" "${version}"
-  fi
-
   create_final_tarball "${name}" "${version}"
 }
 
